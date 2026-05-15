@@ -1,0 +1,44 @@
+.shop {
+  display: flex;
+  min-height: 90vh;
+  background-color: #7B5B3A;
+}
+
+.sidebar {
+  width: 150px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search-bar {
+  padding: 8px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filters label {
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+}
+
+.product-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  padding: 20px;
+  align-content: start;
+}

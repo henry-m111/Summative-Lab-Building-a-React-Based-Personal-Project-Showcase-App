@@ -1,0 +1,80 @@
+.product-detail {
+  background-color: #7B5B3A;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-view {
+  background-color: #d9cfc7;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+  text-align: center;
+}
+
+.detail-view h2 {
+  margin-bottom: 10px;
+  color: #3b2a1a;
+}
+
+.detail-view p {
+  margin-bottom: 8px;
+  color: #5a3e2b;
+}
+
+.detail-view button {
+  margin: 5px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #7B5B3A;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #8b2020 !important;
+}
+
+.edit-form {
+  background-color: #d9cfc7;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+}
+
+.edit-form h2 {
+  margin-bottom: 20px;
+  color: #3b2a1a;
+  text-align: center;
+}
+
+.edit-form .form-group {
+  margin-bottom: 15px;
+}
+
+.edit-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #3b2a1a;
+}
+
+.edit-form input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #7B5B3A;
+  outline: none;
+}
+
+.edit-form button {
+  margin: 5px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #7B5B3A;
+  color: white;
+}
