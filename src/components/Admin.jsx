@@ -3,7 +3,7 @@ import { useProducts } from '../context/ProductContext'
 import '../styles/Admin.css'
 
 function Admin() {
-  const { addProduct } = useProducts()
+  const { products, addProduct } = useProducts()
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -40,7 +40,13 @@ function Admin() {
       return
     }
 
+    // Get next ID by finding max existing ID + 1
+    const nextId = products.length > 0 
+      ? Math.max(...products.map(p => p.id)) + 1 
+      : 1
+
     const newProduct = {
+      id: nextId,
       ...formData,
       price: parseFloat(formData.price)
     }
@@ -52,7 +58,7 @@ function Admin() {
     })
       .then(res => res.json())
       .then(data => {
-        addProduct(data) // Update context
+        addProduct(data)
         setSuccessMessage('Product added successfully!')
         setFormData({ name: '', description: '', origin: '', price: '' })
         setErrors({})

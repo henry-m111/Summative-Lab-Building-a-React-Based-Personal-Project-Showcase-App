@@ -4,14 +4,13 @@ A React-based e-commerce admin portal built as a Single Page Application (SPA).
 
 ## Features
 
-- Home landing page
-- Shop page with search and filters
-- Product detail page
-- Add new coffee products
-- Edit existing products
-- Delete products
-- React Router navigation
-- JSON Server backend
+- Home landing page with hero section
+- Shop page with live search and origin filters
+- Product detail page with edit and delete functionality
+- Admin portal to add new coffee products
+- Form validation on the admin page
+- React Router navigation between pages
+- JSON Server simulated backend
 - Unit testing with Vitest and React Testing Library
 
 ## Technologies Used
@@ -24,53 +23,13 @@ A React-based e-commerce admin portal built as a Single Page Application (SPA).
 - React Testing Library
 - CSS
 
+## React Hooks Used
+
+- `useState` - Local state management for forms, search, and filters
+- `useEffect` - Data fetching and side effects
+- `useContext` - Global product state sharing via ProductContext
+- `useRef` - Auto-focus search input on Shop page
+- `useId` - Unique accessible IDs for form labels
+- `useFetch` (custom hook) - Reusable data fetching logic
+
 ## Project Structure
-
-src/
-- components/
-- hooks/
-- styles/
-- tests/
-
-## Setup Instructions
-
-1. Clone the repository
-
-```bash
-git clone <repo-url>
-```
-
-2. Install dependencies
-
-```bash
-npm install
-```
-
-3. Start React app
-
-```bash
-npm run dev
-```
-
-4. Start JSON Server
-
-```bash
-npm run server
-```
-
-## API Endpoints
-
-- http://localhost:3001/coffee
-- http://localhost:3001/store_info
-
-## Testing
-
-Run tests with:
-
-```bash
-npm test
-```
-
-## Author
-
-Henry Muchiri
