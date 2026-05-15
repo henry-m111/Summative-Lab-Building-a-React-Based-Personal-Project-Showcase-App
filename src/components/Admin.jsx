@@ -8,15 +8,19 @@ function Admin() {
     origin: '',
     price: ''
   })
+
   const [errors, setErrors] = useState({})
   const [successMessage, setSuccessMessage] = useState('')
 
   function validate() {
     const newErrors = {}
+
+    // Validate form fields before submitting
     if (!formData.name) newErrors.name = 'Coffee name is required'
     if (!formData.description) newErrors.description = 'Description is required'
     if (!formData.origin) newErrors.origin = 'Origin is required'
     if (!formData.price) newErrors.price = 'Price is required'
+
     return newErrors
   }
 
@@ -26,20 +30,32 @@ function Admin() {
 
   function handleSubmit(e) {
     e.preventDefault()
+
     const newErrors = validate()
+
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors)
       return
     }
+
     fetch('http://localhost:3001/coffee', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...formData, price: parseFloat(formData.price) })
+      body: JSON.stringify({
+        ...formData,
+        price: parseFloat(formData.price)
+      })
     })
       .then(res => res.json())
       .then(() => {
         setSuccessMessage('Product added successfully!')
-        setFormData({ name: '', description: '', origin: '', price: '' })
+        setFormData({
+          name: '',
+          description: '',
+          origin: '',
+          price: ''
+        })
+
         setErrors({})
       })
   }
@@ -48,10 +64,15 @@ function Admin() {
     <div className="admin">
       <div className="form-container">
         <h2>Add New Coffee</h2>
-        {successMessage && <p className="success">{successMessage}</p>}
+
+        {successMessage && (
+          <p className="success">{successMessage}</p>
+        )}
+
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Coffee Name</label>
+
             <input
               type="text"
               name="name"
@@ -59,10 +80,15 @@ function Admin() {
               onChange={handleChange}
               placeholder="Type here"
             />
-            {errors.name && <span className="error">{errors.name}</span>}
+
+            {errors.name && (
+              <span className="error">{errors.name}</span>
+            )}
           </div>
+
           <div className="form-group">
             <label>Description</label>
+
             <input
               type="text"
               name="description"
@@ -70,10 +96,15 @@ function Admin() {
               onChange={handleChange}
               placeholder="Type here"
             />
-            {errors.description && <span className="error">{errors.description}</span>}
+
+            {errors.description && (
+              <span className="error">{errors.description}</span>
+            )}
           </div>
+
           <div className="form-group">
             <label>Origin</label>
+
             <input
               type="text"
               name="origin"
@@ -81,10 +112,15 @@ function Admin() {
               onChange={handleChange}
               placeholder="Type here"
             />
-            {errors.origin && <span className="error">{errors.origin}</span>}
+
+            {errors.origin && (
+              <span className="error">{errors.origin}</span>
+            )}
           </div>
+
           <div className="form-group">
             <label>Price</label>
+
             <input
               type="number"
               name="price"
@@ -92,8 +128,12 @@ function Admin() {
               onChange={handleChange}
               placeholder="Type here"
             />
-            {errors.price && <span className="error">{errors.price}</span>}
+
+            {errors.price && (
+              <span className="error">{errors.price}</span>
+            )}
           </div>
+
           <button type="submit">Submit</button>
         </form>
       </div>
