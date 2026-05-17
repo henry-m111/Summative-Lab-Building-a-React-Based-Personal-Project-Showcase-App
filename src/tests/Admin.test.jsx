@@ -1,16 +1,24 @@
 import { render, screen, fireEvent } from '@testing-library/react'
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { ProductProvider } from '../context/ProductContext'
 import Admin from '../components/Admin'
 
-// Wrapper component to provide context
-function Wrapper({ children }) {
-  return <ProductProvider>{children}</ProductProvider>
-}
+beforeEach(() => {
+  global.fetch = vi.fn(() =>
+    Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve([])
+    })
+  )
+})
 
 describe('Admin', () => {
   it('renders the add product form', () => {
-    render(<Admin />, { wrapper: Wrapper })
+    render(
+      <ProductProvider>
+        <Admin />
+      </ProductProvider>
+    )
     expect(screen.getByText('Add New Coffee')).toBeInTheDocument()
     expect(screen.getByText('Coffee Name')).toBeInTheDocument()
     expect(screen.getByText('Description')).toBeInTheDocument()
@@ -19,7 +27,11 @@ describe('Admin', () => {
   })
 
   it('shows validation errors when form is submitted empty', () => {
-    render(<Admin />, { wrapper: Wrapper })
+    render(
+      <ProductProvider>
+        <Admin />
+      </ProductProvider>
+    )
     fireEvent.click(screen.getByText('Submit'))
     expect(screen.getByText('Coffee name is required')).toBeInTheDocument()
     expect(screen.getByText('Description is required')).toBeInTheDocument()
@@ -28,7 +40,11 @@ describe('Admin', () => {
   })
 
   it('updates input values when typing', () => {
-    render(<Admin />, { wrapper: Wrapper })
+    render(
+      <ProductProvider>
+        <Admin />
+      </ProductProvider>
+    )
     const nameInput = screen.getAllByPlaceholderText('Type here')[0]
     fireEvent.change(nameInput, { target: { value: 'Test Coffee' } })
     expect(nameInput.value).toBe('Test Coffee')

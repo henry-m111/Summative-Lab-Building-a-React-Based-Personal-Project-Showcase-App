@@ -1,14 +1,7 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 
-// Create the context
 const ProductContext = createContext()
 
-// Custom hook to use the context
-export function useProducts() {
-  return useContext(ProductContext)
-}
-
-// Provider component
 export function ProductProvider({ children }) {
   const [products, setProducts] = useState([])
 
@@ -24,7 +17,7 @@ export function ProductProvider({ children }) {
 
   function updateProduct(updatedProduct) {
     setProducts(prev =>
-      prev.map(p => (p.id === updatedProduct.id ? updatedProduct : p))
+      prev.map(p => p.id === updatedProduct.id ? updatedProduct : p)
     )
   }
 
@@ -37,4 +30,8 @@ export function ProductProvider({ children }) {
       {children}
     </ProductContext.Provider>
   )
+}
+
+export function useProducts() {
+  return useContext(ProductContext)
 }
