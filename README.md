@@ -1,35 +1,22 @@
-# Coffee R Us
+# Coffee R Us - E-Commerce Admin Portal
 
-A React-based e-commerce admin portal built as a Single Page Application (SPA).
+A React-based Single Page Application (SPA) for managing a coffee e-commerce store. Built as part of a summative lab to demonstrate advanced React concepts.
 
 ## Features
 
-- Home landing page with hero section
-- Shop page with live search and origin filters
-- Product detail page with edit and delete functionality
-- Admin portal to add new coffee products
-- Form validation on the admin page
-- React Router navigation between pages
-- JSON Server simulated backend
-- Unit testing with Vitest and React Testing Library
+- 🏠 **Home Page** - Landing page describing the store
+- ☕ **Shop Page** - Browse all coffee products with search and filter by origin
+- ➕ **Admin Portal** - Add new coffee products via a form
+- 📝 **Product Detail** - View, edit, and delete individual products
+- 🔍 **Dynamic Search** - Filter products in real time
+- 📦 **Full CRUD** - Create, Read, Update, and Delete products
 
-## Technologies Used
+## Tech Stack
 
-- React
+- React 18
+- React Router v7
 - Vite
-- React Router DOM
-- JSON Server
-- Vitest
-- React Testing Library
-- CSS
-
-## React Hooks Used
-
-- `useState` - Local state management for forms, search, and filters
-- `useEffect` - Data fetching and side effects
-- `useContext` - Global product state sharing via ProductContext
-- `useRef` - Auto-focus search input on Shop page
-- `useId` - Unique accessible IDs for form labels
-- `useFetch` (custom hook) - Reusable data fetching logic
+- JSON Server (simulated backend)
+- Vitest + React Testing Library
 
 ## Project Structure
